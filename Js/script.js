@@ -60,6 +60,11 @@ const init = () => {
     return
   }
 
+  if (inputHora.value.length > 2 || inputMin.value.length > 2 || inputSeg.value.length > 2) {
+    messageAlert('Error: La entrada no corresponde al formato 99:59:59')
+    return
+  }
+
   // If the given input it's empty it's replaced as a 00 by default.
   horas.textContent = formater(inputHora.value) || '00'
   minutos.textContent = formater(inputMin.value) || '00'
@@ -145,7 +150,7 @@ const reset = () => {
   title.textContent = 'Despertador'
   cabezera.textContent = 'Cuenta Atras'
 
-  inputs.removeChild(reiniciar)
+  if (inputs.contains(reiniciar)) { inputs.removeChild(reiniciar) }
 
   empezar.style.visibility = 'visible'
   cancelar.style.visibility = 'visible'
