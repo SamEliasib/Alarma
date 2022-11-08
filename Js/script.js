@@ -140,7 +140,7 @@ const formater = num => parseInt(num) < 10 ? `0${num}` : num
 // Resets the clock to an initial state.
 const reset = () => {
   clearInterval(myInterval)
-  myInterval = null
+  myInterval = undefined
 
   horas.textContent = '00'
   minutos.textContent = '00'
